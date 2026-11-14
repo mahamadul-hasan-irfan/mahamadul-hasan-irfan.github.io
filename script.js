@@ -14,8 +14,10 @@ document.getElementById("lx").onclick=function(){lb.classList.remove("on")};
 document.getElementById("lp").onclick=function(){step(-1)};document.getElementById("ln").onclick=function(){step(1)};
 lb.onclick=function(e){if(e.target===lb)lb.classList.remove("on")};
 document.onkeydown=function(e){if(!lb.classList.contains("on"))return;if(e.key==="Escape")lb.classList.remove("on");if(e.key==="ArrowLeft")step(-1);if(e.key==="ArrowRight")step(1)};
-$(".slider").forEach(function(s){var t=s.querySelector(".track"),n=t.children.length,k=0,d=s.querySelector(".dots"),tm;
-for(var j=0;j<n;j++){var b=document.createElement("i");b.setAttribute("data-i",j);b.onclick=function(){go(+this.getAttribute("data-i"))};d.appendChild(b)}
-function go(x){k=(x+n)%n;t.style.transform="translateX(-"+k*100+"%)";Array.prototype.forEach.call(d.children,function(c,q){c.className=q===k?"on":""});reset()}
-function reset(){clearInterval(tm);tm=setInterval(function(){go(k+1)},4000)}
-s.querySelector(".prev").onclick=function(){go(k-1)};s.querySelector(".next").onclick=function(){go(k+1)};go(0)});
+$(".slider").forEach(function(s){var t=s.querySelector(".track"),im=t.children,n=im.length,k=0,d=s.querySelector(".dots"),tm,sx=0;
+var c=document.createElement("div");c.className="cnt";s.appendChild(c);var b=document.createElement("div");b.className="bar";s.appendChild(b);
+for(var j=0;j<n;j++){var q=document.createElement("i");q.setAttribute("data-i",j);q.onclick=function(){go(+this.getAttribute("data-i"))};d.appendChild(q)}
+function go(x){k=(x+n)%n;t.style.transform="translateX(-"+k*100+"%)";Array.prototype.forEach.call(im,function(e,p){e.className=p===k?"on":""});Array.prototype.forEach.call(d.children,function(e,p){e.className=p===k?"on":""});c.textContent=(k+1)+" / "+n;b.style.transition="none";b.style.width="0";void b.offsetWidth;b.style.transition="width 5s linear";b.style.width="100%";clearInterval(tm);tm=setInterval(function(){go(k+1)},5000)}
+s.querySelector(".prev").onclick=function(){go(k-1)};s.querySelector(".next").onclick=function(){go(k+1)};
+s.addEventListener("touchstart",function(e){sx=e.touches[0].clientX},{passive:true});
+s.addEventListener("touchend",function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(dx<0?k+1:k-1)});go(0)});

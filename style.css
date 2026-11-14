@@ -73,3 +73,18 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:30px 22px 40px;
 @media (max-width:800px){.hero .in{grid-template-columns:1fr;padding:56px 22px 130px}.about,.cta{grid-template-columns:1fr}.ph{max-width:200px}nav div a:nth-child(n+5){display:none}.fl div{border-bottom:1px solid var(--line)}}
 .thumbs a[hidden]{display:none}
 .badge{font-size:12px;background:#00f2fe14;color:var(--acc);border:1px solid #00f2fe33;padding:3px 10px;border-radius:99px;font-weight:600}
+
+.btn{transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-3px);box-shadow:0 0 30px #00f2fe77}
+.hl{color:var(--acc);font-weight:600}
+.card a.more{display:inline-block;margin-top:12px;color:var(--acc);font-weight:600;font-size:14px;text-decoration:none}.card a.more:hover{text-decoration:underline}
+.act{transition:border-color .25s,transform .25s}.act:hover{border-color:var(--acc);transform:translateX(4px)}
+.chip{transition:all .2s}.chip:hover{background:#00f2fe33;transform:translateY(-2px)}
+.tl .it:hover::before{box-shadow:0 0 0 4px var(--bg),0 0 22px var(--acc)}
+.fl div{transition:background .25s}.fl div:hover{background:#0c1d35}
+
+.post .cv{aspect-ratio:16/9;display:grid;place-items:center;background:repeating-linear-gradient(45deg,var(--card),var(--card) 10px,#0c1d35 10px,#0c1d35 20px);color:var(--acc);font-size:20px;font-weight:600}
+
+.track img.on{animation:zo 1.8s ease-out}@keyframes zo{from{transform:scale(1.05)}to{transform:scale(1)}}
+.cnt{position:absolute;top:12px;right:14px;background:#030a14cc;color:var(--acc);padding:3px 12px;border-radius:99px;font-size:13px;font-weight:600}
+.bar{position:absolute;left:0;bottom:0;height:3px;background:var(--acc);width:0}
+footer{line-height:1.8}
